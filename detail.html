@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Detail - UpSplash</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-white text-neutral-900 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER NAVIGATION SECTION -->
+  <header
+    class="w-full px-4 md:px-8 py-3 md:py-4 border-b border-neutral-200 flex items-center justify-between gap-4 sticky top-0 bg-white z-50">
+
+    <!-- Left: Back Button & User Profile -->
+    <div class="flex items-center gap-2 md:gap-4 min-w-0">
+      <a href="javascript:history.back()"
+        class="text-neutral-500 hover:text-neutral-900 transition text-lg p-1 shrink-0">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
+
+      <a href="#" class="flex items-center gap-2 md:gap-3 group min-w-0">
+        <div
+          class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-300 shrink-0">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+            alt="Arnold" class="w-full h-full object-cover">
+        </div>
+        <div class="flex flex-col min-w-0">
+          <span
+            class="text-xs md:text-sm font-bold text-neutral-900 leading-tight group-hover:text-neutral-600 transition truncate">
+            Arnold Francisca
+          </span>
+          <span class="text-[10px] md:text-xs text-neutral-400 leading-none truncate">@clark_fransa</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Right: Header Action Buttons (Responsive Layout) -->
+    <div class="flex items-center gap-1.5 md:gap-2.5 text-xs font-medium text-neutral-500 shrink-0">
+      <button
+        class="border border-neutral-200 w-8 h-8 md:w-9 md:h-9 rounded flex items-center justify-center bg-white hover:bg-neutral-50 shadow-sm transition">
+        <i class="fa-solid fa-bookmark text-xs md:text-sm"></i>
+      </button>
+      <button
+        class="border border-neutral-200 w-8 h-8 md:w-9 md:h-9 rounded flex items-center justify-center bg-white hover:bg-neutral-50 shadow-sm transition">
+        <i class="fa-solid fa-plus text-xs md:text-sm"></i>
+      </button>
+
+      <!-- Button Edit Image hidden on mobile, visible on tablet upward -->
+      <button
+        class="hidden sm:flex border border-neutral-200 px-3 h-9 rounded items-center gap-1.5 bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 transition">
+        Edit image <i class="fa-solid fa-wand-magic-sparkles text-neutral-400 text-[11px]"></i>
+      </button>
+
+      <!-- Download Button Container -->
+      <div class="inline-flex rounded shadow-sm">
+        <button
+          class="bg-white hover:bg-neutral-50 text-neutral-600 border border-neutral-200 rounded-l px-2.5 md:px-4 h-8 md:h-9 text-[11px] md:text-xs font-semibold transition">
+          Download
+        </button>
+        <button
+          class="bg-white hover:bg-neutral-50 text-neutral-600 border border-y border-r border-neutral-200 rounded-r px-2 h-8 md:h-9 text-[11px] md:text-xs transition">
+          <i class="fa-solid fa-chevron-down text-[9px] md:text-[10px] text-neutral-400"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN AREA: DISPLAY IMAGE -->
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 py-4 md:py-6 flex items-center justify-center relative">
+
+    <!-- Desktop Chevron Left Navigation -->
+    <button onclick="window.history.back()"
+      class="absolute left-6 text-neutral-300 hover:text-neutral-900 text-2xl hidden xl:block p-4 transition z-40">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Image wrapper container with responsive max heights -->
+    <div
+      class="w-full max-h-[50vh] md:max-h-[70vh] xl:max-h-[75vh] flex items-center justify-center rounded-lg overflow-hidden">
+      <img id="mainImage"
+        src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80"
+        alt="MacBook Pro Code display"
+        class="max-w-full max-h-[50vh] md:max-h-[70vh] xl:max-h-[75vh] object-contain shadow-sm">
+    </div>
+
+    <!-- Desktop Chevron Right Navigation -->
+    <button onclick="window.history.back()"
+      class="absolute right-6 text-neutral-300 hover:text-neutral-900 text-2xl hidden xl:block p-4 transition z-40">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </main>
+
+  <!-- FOOTER INFO & ACTIONS SECTION -->
+  <footer
+    class="w-full max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-5 border-t border-neutral-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+    <!-- Left Side: Stats Counter Info -->
+    <div class="flex gap-8 md:gap-16 text-left w-full sm:w-auto justify-start">
+      <div>
+        <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Views</p>
+        <p class="text-xs md:text-sm font-black text-neutral-900 mt-0.5 md:mt-1">32,602,553</p>
+      </div>
+      <div>
+        <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Downloads</p>
+        <p class="text-xs md:text-sm font-black text-neutral-900 mt-0.5 md:mt-1">194,239</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Footer Action Utility Buttons -->
+    <div
+      class="flex items-center gap-2 text-xs font-medium text-neutral-500 w-full sm:w-auto justify-end border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-100">
+      <button
+        class="flex-1 sm:flex-none justify-center border border-neutral-200 px-3 h-8 md:h-9 rounded flex items-center gap-1.5 bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 transition">
+        <i class="fa-solid fa-share text-neutral-400 text-xs md:text-sm"></i> Share
+      </button>
+      <button
+        class="flex-1 sm:flex-none justify-center border border-neutral-200 px-3 h-8 md:h-9 rounded flex items-center gap-1.5 bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 transition">
+        <i class="fa-solid fa-circle-info text-neutral-400 text-xs md:text-sm"></i> Info
+      </button>
+      <button
+        class="border border-neutral-200 w-8 h-8 md:w-9 md:h-9 rounded flex items-center justify-center bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 transition shrink-0">
+        <i class="fa-solid fa-ellipsis text-xs md:text-sm"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC PARAMS HANDLING SCRIPT -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const imgSrc = urlParams.get('img');
+    const imgTitle = urlParams.get('title');
+
+    if (imgSrc) {
+      const mainImage = document.getElementById('mainImage');
+      // Mendekode URL gambar agar karakter seperti %26 kembali menjadi &
+      mainImage.src = decodeURIComponent(imgSrc);
+
+      if (imgTitle) {
+        mainImage.alt = decodeURIComponent(imgTitle);
+      }
+    }
+  </script>
+
+</body>
+
+</html>

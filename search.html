@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Result - UpSplash</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-white text-neutral-900 font-sans antialiased flex">
+
+  <aside
+    class="w-16 h-screen sticky top-0 bg-white border-r border-neutral-200 flex flex-col items-center py-4 justify-between hidden md:flex shrink-0">
+    <div class="flex flex-col items-center gap-6 w-full">
+      <a href="index.html"
+        class="text-neutral-900 text-2xl mb-2 flex items-center justify-center hover:text-neutral-600 transition">
+        <i class="fa-solid fa-square-minus text-2xl rotate-180"></i>
+      </a>
+      <button class="w-10 h-10 rounded-lg flex items-center justify-center text-neutral-900 bg-neutral-100">
+        <i class="fa-solid fa-image text-lg"></i>
+      </button>
+      <button
+        class="w-10 h-10 rounded-lg flex items-center justify-center text-neutral-400 hover:text-neutral-600 transition">
+        <i class="fa-solid fa-pen-nib text-lg"></i>
+      </button>
+      <button
+        class="w-10 h-10 rounded-lg flex items-center justify-center text-neutral-400 hover:text-neutral-600 transition">
+        <i class="fa-solid fa-folder-open text-lg"></i>
+      </button>
+      <button
+        class="w-10 h-10 rounded-lg flex items-center justify-center text-neutral-400 hover:text-neutral-600 transition">
+        <i class="fa-solid fa-download text-lg"></i>
+      </button>
+      <button
+        class="w-10 h-10 rounded-lg flex items-center justify-center text-neutral-400 hover:text-neutral-600 transition">
+        <i class="fa-solid fa-bookmark text-lg"></i>
+      </button>
+    </div>
+
+    <div class="flex flex-col items-center gap-4 w-full">
+      <button class="text-neutral-400 hover:text-neutral-600 transition">
+        <i class="fa-solid fa-bell text-lg"></i>
+      </button>
+      <a href="register.html"
+        class="w-8 h-8 rounded-full bg-neutral-200 overflow-hidden cursor-pointer border border-neutral-300 block">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+          alt="Avatar" class="w-full h-full object-cover">
+      </a>
+      <button class="text-neutral-400 hover:text-neutral-600 transition">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </aside>
+
+  <main class="flex-1 min-w-0">
+
+    <header class="bg-white sticky top-0 z-50 px-4 md:px-6 py-3 border-b border-neutral-200 flex flex-col gap-3">
+      <div class="flex items-center justify-between gap-2 md:gap-4">
+        <a href="index.html" class="text-neutral-900 text-2xl md:hidden flex items-center shrink-0">
+          <i class="fa-solid fa-square-minus text-2xl rotate-180"></i>
+        </a>
+
+        <form action="#" method="GET" class="flex-1 relative min-w-0">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-neutral-400">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <input type="text" name="query" value="Linux Code" placeholder="Search photos and illustrations"
+            class="w-full bg-neutral-100 text-sm text-neutral-800 pl-9 pr-14 py-2 rounded-full border border-transparent focus:outline-none focus:bg-white focus:border-neutral-300 transition font-medium truncate">
+
+          <a href="search.html"
+            class="absolute inset-y-0 right-8 flex items-center text-neutral-400 hover:text-neutral-600 cursor-pointer px-1">
+            <i class="fa-solid fa-xmark"></i>
+          </a>
+          <span
+            class="absolute inset-y-0 right-0 flex items-center pr-3 text-neutral-400 cursor-pointer hover:text-neutral-600 hidden sm:inline-flex">
+            <i class="fa-solid fa-expand"></i>
+          </span>
+        </form>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <button
+            class="text-xs font-medium text-neutral-500 hover:text-neutral-900 transition hidden sm:block whitespace-nowrap">Get
+            UpSplash+</button>
+          <a href="upload.html"
+            class="text-xs font-medium bg-neutral-100 hover:bg-neutral-200 text-neutral-600 border border-neutral-300 rounded px-2.5 py-1.5 transition whitespace-nowrap">
+            Submit <span class="hidden sm:inline">an image</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-t border-neutral-100 pt-2">
+        <nav
+          class="flex items-center text-xs font-medium text-neutral-500 gap-5 sm:gap-6 overflow-x-auto scrollbar-none py-1">
+          <a href="#"
+            class="text-neutral-900 border-b-2 border-neutral-900 pb-2 flex items-center gap-1.5 whitespace-nowrap">
+            <i class="fa-solid fa-image"></i> Photos 2.5k
+          </a>
+          <a href="#" class="hover:text-neutral-900 pb-2 flex items-center gap-1.5 whitespace-nowrap">
+            <i class="fa-solid fa-palette"></i> Illustrations 924
+          </a>
+          <a href="#" class="hover:text-neutral-900 pb-2 flex items-center gap-1.5 whitespace-nowrap">
+            More <i class="fa-solid fa-chevron-down text-[10px]"></i>
+          </a>
+        </nav>
+
+        <div
+          class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 text-xs font-medium text-neutral-600 w-full md:w-auto scrollbar-none self-start md:self-auto">
+          <button
+            class="border border-neutral-200 px-3 py-1.5 rounded flex items-center gap-1.5 bg-white hover:bg-neutral-50 whitespace-nowrap shrink-0">
+            <i class="fa-solid fa-copyright text-neutral-400"></i> License <i
+              class="fa-solid fa-chevron-down text-[10px] text-neutral-400"></i>
+          </button>
+          <button
+            class="border border-neutral-200 px-3 py-1.5 rounded flex items-center gap-1.5 bg-white hover:bg-neutral-50 whitespace-nowrap shrink-0">
+            <i class="fa-solid fa-compass text-neutral-400"></i> Orientation <i
+              class="fa-solid fa-chevron-down text-[10px] text-neutral-400"></i>
+          </button>
+          <button
+            class="border border-neutral-200 px-3 py-1.5 rounded flex items-center gap-1.5 bg-white hover:bg-neutral-50 whitespace-nowrap shrink-0">
+            Sort by: <span class="text-neutral-900 font-semibold">Relevance</span> <i
+              class="fa-solid fa-chevron-down text-[10px] text-neutral-400"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="p-4 md:p-6 max-w-[1400px] mx-auto space-y-6">
+
+      <div class="space-y-4">
+        <h1 class="text-2xl md:text-3xl font-black text-neutral-900 tracking-tight">Linux Code</h1>
+
+        <div class="flex flex-wrap gap-2 pt-1 overflow-x-hidden">
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Code</span>
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Coding</span>
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Programming</span>
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Hacker</span>
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Developer</span>
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Javascript</span>
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Grey</span>
+          <span
+            class="text-xs font-medium border border-neutral-200 px-3.5 py-2 rounded-md bg-white hover:border-neutral-900 cursor-pointer transition whitespace-nowrap">Macbook</span>
+        </div>
+      </div>
+
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6 pt-2">
+
+        <a href="detail.html?img=https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format%26fit=crop%26w=1400%26q=80&title=IDE+Code+Editor+View"
+          class="break-inside-avoid block relative rounded-xl overflow-hidden group cursor-pointer bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80"
+            alt="Linux Code" class="w-full h-auto object-cover">
+          <div
+            class="absolute inset-0 bg-neutral-900/20 opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between">
+            <div class="flex justify-end"><button onclick="event.preventDefault(); event.stopPropagation();"
+                class="bg-white text-neutral-700 w-8 h-8 rounded-lg flex items-center justify-center shadow"><i
+                  class="fa-solid fa-heart"></i></button></div>
+            <div class="text-white text-xs font-medium">IDE Code Editor View</div>
+          </div>
+        </a>
+
+        <a href="detail.html?img=https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format%26fit=crop%26w=1400%26q=80&title=Macbook+Coding+Session"
+          class="break-inside-avoid block relative rounded-xl overflow-hidden group cursor-pointer bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
+            alt="Linux Code" class="w-full h-auto object-cover">
+          <div
+            class="absolute inset-0 bg-neutral-900/20 opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between">
+            <div class="flex justify-end"><button onclick="event.preventDefault(); event.stopPropagation();"
+                class="bg-white text-neutral-700 w-8 h-8 rounded-lg flex items-center justify-center shadow"><i
+                  class="fa-solid fa-heart"></i></button></div>
+            <div class="text-white text-xs font-medium">Macbook Coding Session</div>
+          </div>
+        </a>
+
+        <a href="detail.html?img=https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format%26fit=crop%26w=1400%26q=80&title=Linux+System+Terminal"
+          class="break-inside-avoid block relative rounded-xl overflow-hidden group cursor-pointer bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80"
+            alt="Linux Code" class="w-full h-auto object-cover">
+          <div
+            class="absolute inset-0 bg-neutral-900/20 opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between">
+            <div class="flex justify-end"><button onclick="event.preventDefault(); event.stopPropagation();"
+                class="bg-white text-neutral-700 w-8 h-8 rounded-lg flex items-center justify-center shadow"><i
+                  class="fa-solid fa-heart"></i></button></div>
+            <div class="text-white text-xs font-medium">Linux System Terminal</div>
+          </div>
+        </a>
+
+        <a href="detail.html?img=https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format%26fit=crop%26w=1400%26q=80&title=Cyber+Security+Workspace"
+          class="break-inside-avoid block relative rounded-xl overflow-hidden group cursor-pointer bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=600&q=80"
+            alt="Linux Code" class="w-full h-auto object-cover">
+          <div
+            class="absolute inset-0 bg-neutral-900/20 opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between">
+            <div class="flex justify-end"><button onclick="event.preventDefault(); event.stopPropagation();"
+                class="bg-white text-neutral-700 w-8 h-8 rounded-lg flex items-center justify-center shadow"><i
+                  class="fa-solid fa-heart"></i></button></div>
+            <div class="text-white text-xs font-medium">Cyber Security Workspace</div>
+          </div>
+        </a>
+
+        <a href="detail.html?img=https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format%26fit=crop%26w=1400%26q=80&title=Developer+Setup+Minimalist"
+          class="break-inside-avoid block relative rounded-xl overflow-hidden group cursor-pointer bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=600&q=80"
+            alt="Linux Code" class="w-full h-auto object-cover">
+          <div
+            class="absolute inset-0 bg-neutral-900/20 opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between">
+            <div class="flex justify-end"><button onclick="event.preventDefault(); event.stopPropagation();"
+                class="bg-white text-neutral-700 w-8 h-8 rounded-lg flex items-center justify-center shadow"><i
+                  class="fa-solid fa-heart"></i></button></div>
+            <div class="text-white text-xs font-medium">Developer Setup Minimalist</div>
+          </div>
+        </a>
+
+        <a href="detail.html?img=https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format%26fit=crop%26w=1400%26q=80&title=Linux+Bash+Scripting"
+          class="break-inside-avoid block relative rounded-xl overflow-hidden group cursor-pointer bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=600&q=80"
+            alt="Linux Code" class="w-full h-auto object-cover">
+          <div
+            class="absolute inset-0 bg-neutral-900/20 opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-between">
+            <div class="flex justify-end"><button onclick="event.preventDefault(); event.stopPropagation();"
+                class="bg-white text-neutral-700 w-8 h-8 rounded-lg flex items-center justify-center shadow"><i
+                  class="fa-solid fa-heart"></i></button></div>
+            <div class="text-white text-xs font-medium">Linux Bash Scripting</div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </main>
+
+  <style>
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</body>
+
+</html>
