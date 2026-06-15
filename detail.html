@@ -10,6 +10,9 @@
     tailwind.config = {
       theme: {
         extend: {
+          screens: {
+            'xs': '400px',
+          },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
           },
@@ -26,20 +29,21 @@
   <header
     class="w-full px-4 md:px-8 py-3 md:py-4 border-b border-neutral-200 flex items-center justify-between gap-4 sticky top-0 bg-white z-50">
 
-    <!-- Left: Back Button & User Profile -->
-    <div class="flex items-center gap-2 md:gap-4 min-w-0">
+    <!-- Left: Back Button, User Profile & Interaction Buttons (Follow & DM) -->
+    <div class="flex items-center gap-2 sm:gap-4 min-w-0">
       <a href="javascript:history.back()"
         class="text-neutral-500 hover:text-neutral-900 transition text-lg p-1 shrink-0">
         <i class="fa-solid fa-arrow-left"></i>
       </a>
 
-      <a href="#" class="flex items-center gap-2 md:gap-3 group min-w-0">
+      <!-- Creator Profile -->
+      <a href="#" class="flex items-center gap-2 md:gap-3 group min-w-0 shrink-0">
         <div
           class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-300 shrink-0">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
             alt="Arnold" class="w-full h-full object-cover">
         </div>
-        <div class="flex flex-col min-w-0">
+        <div class="flex flex-col min-w-0 hidden xs:flex">
           <span
             class="text-xs md:text-sm font-bold text-neutral-900 leading-tight group-hover:text-neutral-600 transition truncate">
             Arnold Francisca
@@ -47,6 +51,19 @@
           <span class="text-[10px] md:text-xs text-neutral-400 leading-none truncate">@clark_fransa</span>
         </div>
       </a>
+
+      <!-- INTERAKSI: TOMBOL FOLLOW -->
+      <button id="followBtn" onclick="toggleFollow()"
+        class="border border-neutral-200 px-2 py-1 md:px-3 md:py-1.5 rounded bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 hover:text-neutral-900 transition text-xs shrink-0 font-medium">
+        <i class="fa-solid fa-user-plus text-neutral-400 mr-1"></i>Follow
+      </button>
+
+      <!-- INTERAKSI: TOMBOL DIRECT MESSAGE (DM) -->
+      <button onclick="alert('Membuka obrolan pesan dengan Arnold Francisca (Fitur Demo)...')"
+        class="border border-neutral-200 px-2 py-1 md:px-3 md:py-1.5 rounded bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 hover:text-neutral-900 transition text-xs shrink-0 font-medium">
+        <i class="fa-regular fa-envelope text-neutral-400"></i>
+        <span class="hidden sm:inline ml-1">Message</span>
+      </button>
     </div>
 
     <!-- Right: Header Action Buttons (Responsive Layout) -->
@@ -123,7 +140,14 @@
 
     <!-- Right Side: Footer Action Utility Buttons -->
     <div
-      class="flex items-center gap-2 text-xs font-medium text-neutral-500 w-full sm:w-auto justify-end border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-100">
+      class="flex items-center gap-2 text-xs font-medium text-neutral-500 w-full sm:w-auto justify-end border-t sm:border-t-0 pt-3 sm:pt-0 border-neutral-100 flex-wrap sm:flex-nowrap">
+
+      <!-- INTERAKSI: CREATOR SUPPORT (DONASI/SAY THANKS) -->
+      <button onclick="alert('Membuka menu Creator Support untuk Donasi/Atribusi (Fitur Demo)...')"
+        class="flex-1 sm:flex-none justify-center border border-neutral-200 px-3 h-8 md:h-9 rounded flex items-center gap-1.5 bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 hover:text-neutral-900 font-semibold transition">
+        <i class="fa-solid fa-heart text-red-500 text-xs md:text-sm"></i> Support
+      </button>
+
       <button
         class="flex-1 sm:flex-none justify-center border border-neutral-200 px-3 h-8 md:h-9 rounded flex items-center gap-1.5 bg-white hover:bg-neutral-50 shadow-sm text-neutral-600 transition">
         <i class="fa-solid fa-share text-neutral-400 text-xs md:text-sm"></i> Share
@@ -139,19 +163,36 @@
     </div>
   </footer>
 
-  <!-- DYNAMIC PARAMS HANDLING SCRIPT -->
+  <!-- DYNAMIC PARAMS & INTERACTION HANDLING SCRIPT -->
   <script>
+    // Handling data dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const imgSrc = urlParams.get('img');
     const imgTitle = urlParams.get('title');
 
     if (imgSrc) {
       const mainImage = document.getElementById('mainImage');
-      // Mendekode URL gambar agar karakter seperti %26 kembali menjadi &
       mainImage.src = decodeURIComponent(imgSrc);
 
       if (imgTitle) {
         mainImage.alt = decodeURIComponent(imgTitle);
+      }
+    }
+
+    // Fungsi Interaksi Simpel untuk Tombol Follow
+    let isFollowing = false;
+    function toggleFollow() {
+      const followBtn = document.getElementById('followBtn');
+      isFollowing = !isFollowing;
+
+      if (isFollowing) {
+        followBtn.innerHTML = '<i class="fa-solid fa-user-check text-green-600 mr-1"></i>Following';
+        followBtn.classList.add('bg-neutral-900', 'text-white', 'hover:bg-neutral-800');
+        followBtn.classList.remove('bg-white', 'text-neutral-600', 'hover:bg-neutral-50');
+      } else {
+        followBtn.innerHTML = '<i class="fa-solid fa-user-plus text-neutral-400 mr-1"></i>Follow';
+        followBtn.classList.remove('bg-neutral-900', 'text-white', 'hover:bg-neutral-800');
+        followBtn.classList.add('bg-white', 'text-neutral-600', 'hover:bg-neutral-50');
       }
     }
   </script>
